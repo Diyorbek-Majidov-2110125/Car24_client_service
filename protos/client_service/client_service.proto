@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package client_service;
+
+option go_package = "genproto/client_service";
+
+import "client.proto";
+import "google/protobuf/empty.proto";
+
+service ClientService {
+    rpc Create(CreateClientRequest) returns (Client){};
+    rpc GetById(ClientPrimaryKey) returns (Client){};
+    rpc GetList(GetListClientRequest) returns (GetListClientResponse){};
+    rpc Update(UpdateClient) returns (Client){};
+    rpc UpdatePatch(UpdatePatchClient) returns (Client){};
+    rpc Delete(ClientPrimaryKey) returns (google.protobuf.Empty){};
+}
